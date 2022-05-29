@@ -3,25 +3,6 @@ const $animalForm = document.querySelector('#animal-form');
 const handleAnimalFormSubmit = event => {
   event.preventDefault();
 
-  fetch('/api/animals', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(animalObject)
-  })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      alert('Error: ' + response.statusText);
-    })
-    .then(postResponse => {
-      console.log(postResponse);
-      alert('Thank you for adding an animal!');
-    });
-
   // get animal data and organize it
   const name = $animalForm.querySelector('[name="animal-name"]').value;
   const species = $animalForm.querySelector('[name="species"]').value;
@@ -43,8 +24,28 @@ const handleAnimalFormSubmit = event => {
   for (let i = 0; i < selectedTraits.length; i += 1) {
     personalityTraits.push(selectedTraits[i].value);
   }
+  
   const animalObject = { name, species, diet, personalityTraits };
 
 };
+
+fetch('/api/animals', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(animalObject)
+})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    alert('Error: ' + response.statusText);
+  })
+  .then(postResponse => {
+    console.log(postResponse);
+    alert('Thank you for adding an animal!');
+  });
 
 $animalForm.addEventListener('submit', handleAnimalFormSubmit);
