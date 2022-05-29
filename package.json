@@ -20,5 +20,8 @@
   "homepage": "https://github.com/lyuhan2828/zookeepr#readme",
   "dependencies": {
     "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
   }
 }
