@@ -9,6 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 // parse(analyze) incoming JSON data
 app.use(express.json());
 
+app.use(express.static('public'));
+
 const { animals } = require('./data/animals.json');
 
 function filterByQuery(query, animalsArray) {
@@ -116,7 +118,7 @@ app.get('/api/animals', (req, res) => {
   });
 
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
+    res.sendFile(path.join(__dirname, './public/zookeepr-public/index.html'));
   });
 
   app.listen(PORT, () => {
