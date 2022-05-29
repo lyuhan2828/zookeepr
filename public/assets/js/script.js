@@ -27,8 +27,6 @@ const handleAnimalFormSubmit = event => {
   
   const animalObject = { name, species, diet, personalityTraits };
 
-};
-
 fetch('/api/animals', {
   method: 'POST',
   headers: {
@@ -47,5 +45,7 @@ fetch('/api/animals', {
     console.log(postResponse);
     alert('Thank you for adding an animal!');
   });
+
+};
 
 $animalForm.addEventListener('submit', handleAnimalFormSubmit);
