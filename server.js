@@ -121,6 +121,18 @@ app.get('/api/animals', (req, res) => {
     res.sendFile(path.join(__dirname, './public/zookeepr-public/index.html'));
   });
 
+  app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepr-public/animals.html'));
+  });
+
+  app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepr-public/zookeepers.html'));
+  });
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepr-public/index.html'));
+  });
+
   app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
   });
