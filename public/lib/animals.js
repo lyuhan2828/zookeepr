@@ -57,7 +57,7 @@ function filterByQuery(query, animalsArray) {
     // our function's main code will go here!
     animalsArray.push(animal);
     fs.writeFileSync(
-      path.join(__dirname, '../data/animals.json'),
+      path.join(__dirname, '../../data/animals.json'),
       JSON.stringify({animals: animalsArray}, null, 2)
     );
     // return finished code to post route for response
