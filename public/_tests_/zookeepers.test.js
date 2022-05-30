@@ -61,7 +61,7 @@ test("finds by id", () => {
     expect(result.name).toBe("Lernantino");
 });
 
-test("validate favorite age", () => {
+test("validate age", () => {
     
     const zookeeper = {
         id: "6",
@@ -73,7 +73,7 @@ test("validate favorite age", () => {
      const invalidZookeeper = {
             id: "8",
             name: "Lernantino",
-            age: 19,
+            age: "19",
             favoriteAnimal: "Business Cat"
             };
             
